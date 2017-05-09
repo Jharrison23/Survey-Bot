@@ -19,14 +19,19 @@ app.post('/anabot', function(req, res) {
                  req.body.result.parameters.userAnswer ? 
                  req.body.result.parameters.userAnswer : "Seems like some problem. Speak again."
     
-
+ var userName = req.body.result && req.body.result.parameters && 
+                 req.body.result.parameters.userName ? 
+                 req.body.result.parameters.userName : "Seems like some problem. Speak again."
+    
+    
+    
 
 var text = "Thanks for your response!";
 
 
  return res.json({
-        speech: userAnswer,
-        displayText: userAnswer,
+        speech: userName,
+        displayText: userName,
         source: 'ana-web-hook'
         
     });
