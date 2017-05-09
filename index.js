@@ -25,8 +25,8 @@ var text = "Thanks for your response!";
 
 
  return res.json({
-        speech: text,
-        displayText: text,
+        speech: userAnswer,
+        displayText: userAnswer,
         source: 'ana-web-hook'
         
     });
