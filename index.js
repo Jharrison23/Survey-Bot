@@ -6,6 +6,14 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
+var firebase = require('firebase-admin');
+
+var serviceAccount = require("./service-account.json");
+
+firebase.initializeApp({
+    credential: firebase.credential.cert(serviceAccount),
+    databaseURL: "https://high-school-ana.firebaseio.com/"
+});
 
 
 app.use(bodyParser.urlencoded({
