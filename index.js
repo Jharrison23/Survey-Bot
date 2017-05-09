@@ -15,6 +15,12 @@ firebase.initializeApp({
     databaseURL: "https://high-school-ana.firebaseio.com/"
 });
 
+var ref = firebase.database().ref('Ana');
+
+
+var messagesRef = ref.child('Oviedo');
+
+
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -27,19 +33,23 @@ app.post('/anabot', function(req, res) {
                  req.body.result.parameters.userAnswer ? 
                  req.body.result.parameters.userAnswer : "Seems like some problem. Speak again."
     
- var userName = req.body.result.contexts[0] && req.body.result.contexts[0].parameters && 
+    var userName = req.body.result.contexts[0] && req.body.result.contexts[0].parameters && 
                  req.body.result.contexts[0].parameters.userName ? 
                  req.body.result.contexts[0].parameters.userName : "Seems like some problem."
     
     
-    
+    messagesRef.push({
+            UsersName: userName,
+            Response: userAnswer
+        });
 
-var text = "Thanks for your response!";
+
+    var text = "Thank you " + userName + " for your response!";
 
 
  return res.json({
-        speech: userAnswer,
-        displayText: userAnswer,
+        speech: text,
+        displayText: text,
         source: 'ana-web-hook'
         
     });
