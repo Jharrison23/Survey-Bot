@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Jharrison23/Survey-Bot/issues"
   },
-  "homepage": "https://github.com/Jharrison23/Survey-Bot#readme"
+  "homepage": "https://github.com/Jharrison23/Survey-Bot#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2"
+  }
 }
