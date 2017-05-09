@@ -1,23 +1,14 @@
 {
   "name": "ana-web-hook",
   "version": "1.0.0",
-  "description": "Web Hook which connects to firebase",
+  "description": "Webhook sample",
   "main": "index.js",
   "scripts": {
-    "start": "index.js"
+    "start": "node index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Jharrison23/Survey-Bot.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Jharrison23/Survey-Bot/issues"
-  },
-  "homepage": "https://github.com/Jharrison23/Survey-Bot#readme",
+  "author": "James Harrison",
   "dependencies": {
-    "body-parser": "^1.17.1",
-    "express": "^4.15.2"
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4"
   }
 }
