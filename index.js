@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-app.post('/anaBot', function(req, res) {
+app.post('/anabot', function(req, res) {
     var userAnswer = req.body.result && req.body.result.parameters && 
                  req.body.result.parameters.userAnswer ? 
                  req.body.result.parameters.userAnswer : "Seems like some problem. Speak again."
