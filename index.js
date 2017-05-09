@@ -19,9 +19,9 @@ app.post('/anabot', function(req, res) {
                  req.body.result.parameters.userAnswer ? 
                  req.body.result.parameters.userAnswer : "Seems like some problem. Speak again."
     
- var userName = req.body.result && req.body.result.parameters && 
-                 req.body.result.parameters.userName.original ? 
-                 req.body.result.parameters.userName.original : "Seems like some problem."
+ var userName = req.body.contexts && req.body.contexts.parameters && 
+                 req.body.contexts.parameters.userName ? 
+                 req.body.contexts.parameters.userName : "Seems like some problem."
     
     
     
