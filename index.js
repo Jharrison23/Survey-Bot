@@ -20,8 +20,8 @@ app.post('/anabot', function(req, res) {
                  req.body.result.parameters.userAnswer : "Seems like some problem. Speak again."
     
  var userName = req.body.result && req.body.result.parameters && 
-                 req.body.result.parameters.userName ? 
-                 req.body.result.parameters.userName : "Seems like some problem. Speak again."
+                 req.body.result.parameters.userName.original ? 
+                 req.body.result.parameters.userName.original : "Seems like some problem."
     
     
     
