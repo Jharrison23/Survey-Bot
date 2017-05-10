@@ -20,6 +20,7 @@ var ref = firebase.database().ref('Ana');
 
 var messagesRef = ref.child('Oviedo');
 
+var nameRef;
 
 
 app.use(bodyParser.urlencoded({
@@ -35,7 +36,9 @@ app.post('/anabot', function(req, res) {
         var userName = req.body.result && req.body.result.parameters && 
             req.body.result.parameters.userName ? 
             req.body.result.parameters.userName : "Seems like some problem."
-        var nameRef = messagesRef.child(userName);
+        
+        nameRef = messagesRef.child(userName);
+        
         nameRef.push({
             Response: userName
         }); 
@@ -61,7 +64,7 @@ app.post('/anabot', function(req, res) {
     //              req.body.result.contexts[0].parameters.userName : "Seems like some problem."
     
     
-    messagesRef.push({
+    nameRef.push({
             Response: userAnswer
         });
 
