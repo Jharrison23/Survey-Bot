@@ -43,7 +43,7 @@ app.post('/anabot', function(req, res) {
             Name: userName
         }); 
 
-        var text = "Thank you " + userName + " for your response!";
+        var text = "Hello " + userName + "on a scale of 1 - 10 how likely are you to recommend <School>?";
 
         return res.json({
             speech: text,
@@ -64,7 +64,7 @@ app.post('/anabot', function(req, res) {
          });
 
 
-        var text = "Rating Recieved!";
+        var text = "What do you like about <School>?";
 
 
         return res.json({
@@ -84,7 +84,7 @@ app.post('/anabot', function(req, res) {
             Liked: userLikes
          });
 
-        var text = "What they liked Recieved!";
+        var text = "What could <School> do better?";
 
         return res.json({
             speech: text,
@@ -103,7 +103,7 @@ app.post('/anabot', function(req, res) {
             Disliked: userDislikes
          });
 
-        var text = "What they Disliked Recieved!";
+        var text = userName + " Thank you again for your input";
 
         return res.json({
             speech: text,
