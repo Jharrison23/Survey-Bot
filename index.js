@@ -40,7 +40,7 @@ app.post('/anabot', function(req, res) {
         nameRef = messagesRef.child(userName);
         
         nameRef.push({
-            Response: userName
+            Name: userName
         }); 
 
         var text = "Thank you " + userName + " for your response!";
@@ -50,14 +50,83 @@ app.post('/anabot', function(req, res) {
             displayText: text,
             source: 'ana-web-hook'
         });
+    }
 
 
+    else if (req.body.result.parameters.method == "Rating")
+    {
+        var userAnswer = req.body.result && req.body.result.parameters &&   
+            req.body.result.parameters.userAnswer ? 
+            req.body.result.parameters.userAnswer : "Seems like some problem. Speak again."
+         
+         nameRef.push({
+            Rating: userAnswer
+         });
+
+
+        var text = "Rating Recieved!";
+
+
+        return res.json({
+            speech: text,
+            displayText: text,
+            source: 'ana-web-hook'
+        });
+    }
+
+    else if (req.body.result.parameters.method == "What They Like")
+    {
+        var userLikes = req.body.result && req.body.result.parameters &&   
+            req.body.result.parameters.userLikes ? 
+            req.body.result.parameters.userLikes : "Seems like some problem. Speak again."
+         
+         nameRef.push({
+            Liked: userLikes
+         });
+
+        var text = "What they liked Recieved!";
+
+        return res.json({
+            speech: text,
+            displayText: text,
+            source: 'ana-web-hook'
+        });
+    }
+
+    else if (req.body.result.parameters.method == "What They Dont like")
+    {
+        var userDislikes = req.body.result && req.body.result.parameters &&   
+            req.body.result.parameters.userDislikes ? 
+            req.body.result.parameters.userDislikes : "Seems like some problem. Speak again."
+         
+         nameRef.push({
+            Disliked: userDislikes
+         });
+
+        var text = "What they Disliked Recieved!";
+
+        return res.json({
+            speech: text,
+            displayText: text,
+            source: 'ana-web-hook'
+        });
+    }
+
+    else
+    {
+        var text = "Else statement";
+
+        return res.json({
+            speech: text,
+            displayText: text,
+            source: 'ana-web-hook'
+        });
     }
 
     
-    var userAnswer = req.body.result && req.body.result.parameters && 
-                 req.body.result.parameters.userAnswer ? 
-                 req.body.result.parameters.userAnswer : "Seems like some problem. Speak again."
+    // var userAnswer = req.body.result && req.body.result.parameters && 
+    //              req.body.result.parameters.userAnswer ? 
+    //              req.body.result.parameters.userAnswer : "Seems like some problem. Speak again."
     
     // var userName = req.body.result.contexts[0] && req.body.result.contexts[0].parameters && 
     //              req.body.result.contexts[0].parameters.userName ? 
