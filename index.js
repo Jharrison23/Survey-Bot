@@ -37,7 +37,7 @@ app.post('/anabot', function(req, res) {
             req.body.result.parameters.userName : "Seems like some problem."
         
         messagesRef.push({
-            Response: userAnswer
+            Response: userName
         }); 
 
         var text = "Thank you " + userName + " for your response!";
