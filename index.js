@@ -43,7 +43,7 @@ app.post('/anabot', function(req, res) {
             Name: userName
         }); 
 
-        var text = "Hello " + userName + "on a scale of 1 - 10 how likely are you to recommend <School>?";
+        var text = "Hello " + userName + " on a scale of 1 - 10 how likely are you to recommend <School>?";
 
         return res.json({
             speech: text,
@@ -103,7 +103,7 @@ app.post('/anabot', function(req, res) {
             Disliked: userDislikes
          });
 
-        var text = userName + " Thank you again for your input";
+        var text = "Thank you again for your input";
 
         return res.json({
             speech: text,
