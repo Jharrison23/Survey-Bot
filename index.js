@@ -32,9 +32,9 @@ app.post('/anabot', function(req, res) {
 
     if(req.body.result.parameters.method == "name")
     {
-        var userName = req.body.result.contexts[0] && req.body.result.contexts[0].parameters && 
-            req.body.result.contexts[0].parameters.userName ? 
-            req.body.result.contexts[0].parameters.userName : "Seems like some problem."
+        var userName = req.body.result && req.body.result.parameters && 
+            req.body.result.parameters.userName ? 
+            req.body.result.parameters.userName : "Seems like some problem."
         
         messagesRef.push({
             Response: userAnswer
