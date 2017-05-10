@@ -93,7 +93,7 @@ app.post('/anabot', function(req, res) {
         });
     }
 
-    else if (req.body.result.parameters.method == "What They Dont like")
+    else if (req.body.result.parameters.method == "What They Dont Like")
     {
         var userDislikes = req.body.result && req.body.result.parameters &&   
             req.body.result.parameters.userDislikes ? 
