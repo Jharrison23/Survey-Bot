@@ -22,6 +22,7 @@ var messagesRef = ref.child('Oviedo');
 
 var nameRef;
 
+var previousQuestion;
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -40,14 +41,17 @@ app.post('/anabot', function(req, res) {
         nameRef = messagesRef.child(userName);
         
         nameRef.push({
+            Question: "What's your name?",
             Name: userName
         }); 
 
-        var text = "Hello " + userName + " on a scale of 1 - 10 how likely are you to recommend <School>?";
+        var response = "Hello " + userName + " on a scale of 1 - 10 how likely are you to recommend <School>?";
+
+        previousQuestion = response;
 
         return res.json({
-            speech: text,
-            displayText: text,
+            speech: response,
+            displayresponse: response,
             source: 'ana-web-hook'
         });
     }
@@ -60,16 +64,17 @@ app.post('/anabot', function(req, res) {
             req.body.result.parameters.userAnswer : "Seems like some problem. Speak again."
          
          nameRef.push({
+            Question: previousQuestion,
             Rating: userAnswer
          });
 
 
-        var text = "What do you like about <School>?";
-
+        var response = "What do you like about <School>?";
+        previousQuestion = response;
 
         return res.json({
-            speech: text,
-            displayText: text,
+            speech: response,
+            displayresponse: response,
             source: 'ana-web-hook'
         });
     }
@@ -81,14 +86,16 @@ app.post('/anabot', function(req, res) {
             req.body.result.parameters.userLikes : "Seems like some problem. Speak again."
          
          nameRef.push({
+            Question: previousQuestion,
             Liked: userLikes
          });
 
-        var text = "What could <School> do better?";
+        var response = "What could <School> do better?";
+        previousQuestion = response;
 
         return res.json({
-            speech: text,
-            displayText: text,
+            speech: response,
+            displayresponse: response,
             source: 'ana-web-hook'
         });
     }
@@ -100,54 +107,32 @@ app.post('/anabot', function(req, res) {
             req.body.result.parameters.userDislikes : "Seems like some problem. Speak again."
          
          nameRef.push({
+            Question: previousQuestion,
             Disliked: userDislikes
          });
 
-        var text = "Thank you again for your input";
+        var response = "Thank you again for your input";
+
 
         return res.json({
-            speech: text,
-            displayText: text,
+            speech: response,
+            displayresponse: response,
             source: 'ana-web-hook'
         });
     }
 
     else
     {
-        var text = "Else statement";
+        var response = "Else statement";
 
         return res.json({
-            speech: text,
-            displayText: text,
+            speech: response,
+            displayresponse: response,
             source: 'ana-web-hook'
         });
     }
 
-    
-    // var userAnswer = req.body.result && req.body.result.parameters && 
-    //              req.body.result.parameters.userAnswer ? 
-    //              req.body.result.parameters.userAnswer : "Seems like some problem. Speak again."
-    
-    // var userName = req.body.result.contexts[0] && req.body.result.contexts[0].parameters && 
-    //              req.body.result.contexts[0].parameters.userName ? 
-    //              req.body.result.contexts[0].parameters.userName : "Seems like some problem."
-    
-    
-    // nameRef.push({
-    //         Response: userAnswer
-    //     });
-
-
-    // var text = "Thank you for your response!";
-
-
-    // return res.json({
-    //     speech: text,
-    //     displayText: text,
-    //     source: 'ana-web-hook'
-        
-    // });
-
+   
 });
     
     
