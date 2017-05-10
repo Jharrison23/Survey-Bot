@@ -37,7 +37,7 @@ app.post('/anabot', function(req, res) {
             req.body.result.parameters.userName ? 
             req.body.result.parameters.userName : "Seems like some problem."
         
-        nameRef = messagesRef.child(userName);
+        nameRef = messagesRef.child(userName + "-" + messagesRef.key);
         
         nameRef.push({
             Name: userName
