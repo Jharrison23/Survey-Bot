@@ -133,20 +133,20 @@ app.post('/anabot', function(req, res) {
     //              req.body.result.contexts[0].parameters.userName : "Seems like some problem."
     
     
-    nameRef.push({
-            Response: userAnswer
-        });
+    // nameRef.push({
+    //         Response: userAnswer
+    //     });
 
 
-    var text = "Thank you for your response!";
+    // var text = "Thank you for your response!";
 
 
-    return res.json({
-        speech: text,
-        displayText: text,
-        source: 'ana-web-hook'
+    // return res.json({
+    //     speech: text,
+    //     displayText: text,
+    //     source: 'ana-web-hook'
         
-    });
+    // });
 
 });
     
