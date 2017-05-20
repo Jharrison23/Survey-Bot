@@ -9,6 +9,8 @@
   "author": "James Harrison",
   "dependencies": {
     "body-parser": "^1.15.0",
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "firebase": "^3.9.0",
+    "firebase-admin": "^4.2.1"
   }
 }
