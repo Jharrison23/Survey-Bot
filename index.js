@@ -45,7 +45,7 @@ app.post('/anabot', function(req, res) {
             Name: userName
         }); 
 
-        var response = "Hello " + userName + " on a scale of 1 - 10 how likely are you to recommend <School>?";
+        var response = "Thank you!, I just have 1 question \\nHello " + userName + " on a scale of 1 - 10 how likely are you to recommend <School>?";
 
         previousQuestion = response;
 
